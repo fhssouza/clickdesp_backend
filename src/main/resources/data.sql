@@ -16,3 +16,8 @@ INSERT INTO tb_servico (descricao) VALUES ('TRANSFERÊNCIA DE PROPRIEDADE');
 INSERT INTO tb_servico (descricao) VALUES ('LICENCIAMENTO');
 INSERT INTO tb_servico (descricao) VALUES ('MUDANÇA DE CARACTERÍSTICA');
 INSERT INTO tb_servico (descricao) VALUES ('HABILITAÇÃO');
+
+INSERT INTO tb_servico_categoria (servico_id, categoria_id) VALUES (1, 2);
+INSERT INTO tb_servico_categoria (servico_id, categoria_id) VALUES (2, 2);
+INSERT INTO tb_servico_categoria (servico_id, categoria_id) VALUES (3, 2);
+INSERT INTO tb_servico_categoria (servico_id, categoria_id) VALUES (4, 1);
