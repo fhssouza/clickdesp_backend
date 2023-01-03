@@ -11,3 +11,8 @@ INSERT INTO tb_user_role (user_id, role_id) VALUES (2, 2);
 INSERT INTO tb_categoria (nome) VALUES ('HABILITAÇÃO');
 INSERT INTO tb_categoria (nome) VALUES ('VEICULOS');
 INSERT INTO tb_categoria (nome) VALUES ('OUTROS');
+
+INSERT INTO tb_servico (descricao) VALUES ('TRANSFERÊNCIA DE PROPRIEDADE');
+INSERT INTO tb_servico (descricao) VALUES ('LICENCIAMENTO');
+INSERT INTO tb_servico (descricao) VALUES ('MUDANÇA DE CARACTERÍSTICA');
+INSERT INTO tb_servico (descricao) VALUES ('HABILITAÇÃO');
