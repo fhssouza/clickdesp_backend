@@ -21,3 +21,9 @@ INSERT INTO tb_servico_categoria (servico_id, categoria_id) VALUES (1, 2);
 INSERT INTO tb_servico_categoria (servico_id, categoria_id) VALUES (2, 2);
 INSERT INTO tb_servico_categoria (servico_id, categoria_id) VALUES (3, 2);
 INSERT INTO tb_servico_categoria (servico_id, categoria_id) VALUES (4, 1);
+
+INSERT INTO tb_estado (nome) VALUES ('Pará');
+INSERT INTO tb_estado (nome) VALUES ('Amazonas');
+
+INSERT INTO tb_cidade (nome, estado_id) VALUES ('Belém', 1);
+INSERT INTO tb_cidade (nome, estado_id) VALUES ('Manaus', 2);
