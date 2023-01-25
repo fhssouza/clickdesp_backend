@@ -27,3 +27,14 @@ INSERT INTO tb_estado (nome) VALUES ('Amazonas');
 
 INSERT INTO tb_cidade (nome, estado_id) VALUES ('Belém', 1);
 INSERT INTO tb_cidade (nome, estado_id) VALUES ('Manaus', 2);
+
+INSERT INTO tb_cliente (nome, CPF_OU_CNPJ, habilitacao, email, tipocliente ) VALUES ('Maria Silva', '99999999999', '123456789', 'maria@email.com.br', '1');
+
+INSERT INTO tb_telefone (cliente_id, telefones) VALUES ('1','98155-9030');
+INSERT INTO tb_telefone (cliente_id, telefones) VALUES ('1','98158-3030');
+
+INSERT INTO tb_endereco (logradouro, numero, complemento, bairro, cep, cidade_id, cliente_id) VALUES ('Av. Almirante Barroso', '100', 'Apto 101', 'Centro', '66000-000', '1', '1');
+INSERT INTO tb_endereco (logradouro, numero, complemento, bairro, cep, cidade_id, cliente_id) VALUES ('Av. Castro Silva', '150', 'Apto 01', 'Distrito', '66000-250', '2', '1');
+
+
+
