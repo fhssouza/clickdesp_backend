@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -28,7 +27,7 @@ public class Servico implements Serializable {
 	private String descricao;
 	
 	@JsonIgnore
-	@ManyToMany(fetch = FetchType.EAGER)
+	@ManyToMany
 	@JoinTable(name = "tb_servico_categoria",
 		joinColumns = @JoinColumn(name = "servico_id"),
 		inverseJoinColumns = @JoinColumn(name = "categoria_id")
