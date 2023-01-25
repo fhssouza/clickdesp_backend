@@ -1,15 +1,14 @@
 package com.projetos.despachante.entities;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
 import javax.persistence.CollectionTable;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -33,10 +32,10 @@ public class Cliente implements Serializable{
 	private String email;
 	private Integer tipocliente;
 	
-	@OneToMany(mappedBy = "cliente")
-	List<Endereco> enderecos = new ArrayList<>();
+	@OneToMany(mappedBy = "cliente", fetch = FetchType.EAGER)
+	Set<Endereco> enderecos = new HashSet<>();
 	
-	@ElementCollection
+	@ElementCollection(fetch = FetchType.EAGER)
 	@CollectionTable(name = "tb_telefone")
 	private Set<String> telefones = new HashSet<>();
 	
@@ -101,11 +100,11 @@ public class Cliente implements Serializable{
 		this.tipocliente = tipocliente.getCod();
 	}
 
-	public List<Endereco> getEnderecos() {
+	public Set<Endereco> getEnderecos() {
 		return enderecos;
 	}
 
-	public void setEnderecos(List<Endereco> enderecos) {
+	public void setEnderecos(Set<Endereco> enderecos) {
 		this.enderecos = enderecos;
 	}
 

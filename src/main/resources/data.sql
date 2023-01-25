@@ -28,13 +28,18 @@ INSERT INTO tb_estado (nome) VALUES ('Amazonas');
 INSERT INTO tb_cidade (nome, estado_id) VALUES ('Belém', 1);
 INSERT INTO tb_cidade (nome, estado_id) VALUES ('Manaus', 2);
 
-INSERT INTO tb_cliente (nome, CPF_OU_CNPJ, habilitacao, email, tipocliente ) VALUES ('Maria Silva', '99999999999', '123456789', 'maria@email.com.br', '1');
+INSERT INTO tb_cliente (nome, CPF_OU_CNPJ, habilitacao, email, tipocliente ) VALUES ('Maria Silva', '257.953.580-29', '84263744746', 'maria@email.com.br', '1');
+INSERT INTO tb_cliente (nome, CPF_OU_CNPJ, habilitacao, email, tipocliente ) VALUES ('Deyvid Andrade', '44.838.371/0001-12', '85591845514', 'deyvid@email.com.br', '2');
 
 INSERT INTO tb_telefone (cliente_id, telefones) VALUES ('1','98155-9030');
 INSERT INTO tb_telefone (cliente_id, telefones) VALUES ('1','98158-3030');
+INSERT INTO tb_telefone (cliente_id, telefones) VALUES ('2','98178-9090');
+INSERT INTO tb_telefone (cliente_id, telefones) VALUES ('2','98558-2020');
 
 INSERT INTO tb_endereco (logradouro, numero, complemento, bairro, cep, cidade_id, cliente_id) VALUES ('Av. Almirante Barroso', '100', 'Apto 101', 'Centro', '66000-000', '1', '1');
 INSERT INTO tb_endereco (logradouro, numero, complemento, bairro, cep, cidade_id, cliente_id) VALUES ('Av. Castro Silva', '150', 'Apto 01', 'Distrito', '66000-250', '2', '1');
+INSERT INTO tb_endereco (logradouro, numero, complemento, bairro, cep, cidade_id, cliente_id) VALUES ('Av. Julio Cezar', '300', 'Sem Complemento', 'Maracangalha', '66000-000', '1', '2');
+INSERT INTO tb_endereco (logradouro, numero, complemento, bairro, cep, cidade_id, cliente_id) VALUES ('Av. Fernando Silva', '800', 'Apto 100', 'Centro', '66000-251', '1', '2');
 
 
 
