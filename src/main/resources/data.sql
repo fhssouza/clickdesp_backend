@@ -41,5 +41,13 @@ INSERT INTO tb_endereco (logradouro, numero, complemento, bairro, cep, cidade_id
 INSERT INTO tb_endereco (logradouro, numero, complemento, bairro, cep, cidade_id, cliente_id) VALUES ('Av. Julio Cezar', '300', 'Sem Complemento', 'Maracangalha', '66000-000', '1', '2');
 INSERT INTO tb_endereco (logradouro, numero, complemento, bairro, cep, cidade_id, cliente_id) VALUES ('Av. Fernando Silva', '800', 'Apto 100', 'Centro', '66000-251', '1', '2');
 
+INSERT INTO tb_tiposervico (descricao) values ('Transferência');
+
+INSERT INTO tb_veiculo (placa, marca, modelo, chassi, renavam, cor, combustivel, ano, arrendamento, procedencia, alienacao_fiduciaria, crv, crv_data, cliente_id) VALUES ('JVC5857', 'Honda', 'Fit DX 1.4 Flex 16V 5p Aut.', '123456', '81065431584', 'Azul', '3', '2011', 'FALSE', '1', 'FALSE', '123456', '2011-12-03', 1);
+
+INSERT INTO tb_ordemservico (instante, status, observacao, tipo_servico_id, cliente_id, veiculo_id) VALUES ('2023-03-26', '1', 'Teste', '1', '1', '1');
+
+
+
 
 
