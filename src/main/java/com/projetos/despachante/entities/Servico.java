@@ -2,8 +2,10 @@ package com.projetos.despachante.entities;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,6 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -33,6 +36,9 @@ public class Servico implements Serializable {
 		inverseJoinColumns = @JoinColumn(name = "categoria_id")
 			)
 	private List<Categoria> categorias = new ArrayList<>();
+	
+	@OneToMany(mappedBy = "id.servico")
+	private Set<ItemOrdemServico> itens = new HashSet<>();
 
 	public Servico() {
 	}
@@ -41,6 +47,14 @@ public class Servico implements Serializable {
 		super();
 		this.id = id;
 		this.descricao = descricao;
+	}
+	
+	public List<OrdemServico> getOrdemServico(){
+		List<OrdemServico> lista = new ArrayList<>();
+		for (ItemOrdemServico x : itens) {
+			lista.add(x.getOrdemServico());
+		}
+		return lista;
 	}
 
 	public Long getId() {
@@ -65,6 +79,14 @@ public class Servico implements Serializable {
 
 	public void setCategorias(List<Categoria> categorias) {
 		this.categorias = categorias;
+	}
+	
+	public Set<ItemOrdemServico> getItens() {
+		return itens;
+	}
+
+	public void setItens(Set<ItemOrdemServico> itens) {
+		this.itens = itens;
 	}
 
 	@Override

@@ -2,7 +2,9 @@ package com.projetos.despachante.entities;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,6 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -41,6 +44,9 @@ public class OrdemServico implements Serializable{
 	@ManyToOne
 	@JoinColumn(name = "cliente_id")
 	private Cliente cliente;
+	
+	@OneToMany(mappedBy = "id.ordemServico")
+	private Set<ItemOrdemServico> itens = new HashSet<>();
 	
 	public OrdemServico() {
 	}
@@ -111,6 +117,14 @@ public class OrdemServico implements Serializable{
 
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
+	}
+	
+	public Set<ItemOrdemServico> getItens() {
+		return itens;
+	}
+
+	public void setItens(Set<ItemOrdemServico> itens) {
+		this.itens = itens;
 	}
 
 	@Override

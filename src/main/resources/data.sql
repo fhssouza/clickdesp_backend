@@ -47,6 +47,8 @@ INSERT INTO tb_veiculo (placa, marca, modelo, chassi, renavam, cor, combustivel,
 
 INSERT INTO tb_ordemservico (instante, status, observacao, tipo_servico_id, cliente_id, veiculo_id) VALUES ('2023-03-26', '1', 'Teste', '1', '1', '1');
 
+INSERT INTO tb_itemordemservico (valor, desconto, valor_liquido, servico_id, ordemservico_id) VALUES ('500.00', '0.0', '500.00', '1', '1');
+
 
 
 
