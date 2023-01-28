@@ -8,6 +8,7 @@ import java.util.Objects;
 import java.util.Set;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -37,7 +38,8 @@ public class Servico implements Serializable {
 			)
 	private List<Categoria> categorias = new ArrayList<>();
 	
-	@OneToMany(mappedBy = "id.servico")
+	@JsonIgnore
+	@OneToMany(mappedBy = "id.servico", fetch = FetchType.EAGER)
 	private Set<ItemOrdemServico> itens = new HashSet<>();
 
 	public Servico() {
@@ -49,6 +51,7 @@ public class Servico implements Serializable {
 		this.descricao = descricao;
 	}
 	
+	@JsonIgnore
 	public List<OrdemServico> getOrdemServico(){
 		List<OrdemServico> lista = new ArrayList<>();
 		for (ItemOrdemServico x : itens) {

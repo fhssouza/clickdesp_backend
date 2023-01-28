@@ -15,6 +15,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.projetos.despachante.entities.enums.TipoCliente;
 
 @Entity
@@ -39,10 +40,12 @@ public class Cliente implements Serializable{
 	@CollectionTable(name = "tb_telefone")
 	private Set<String> telefones = new HashSet<>();
 	
-	@OneToMany(mappedBy = "cliente")
+	@JsonIgnore
+	@OneToMany(mappedBy = "cliente", fetch = FetchType.EAGER)
 	Set<OrdemServico> ordensServicos = new HashSet<>();
 	
-	@OneToMany(mappedBy = "cliente")
+	@JsonIgnore
+	@OneToMany(mappedBy = "cliente", fetch = FetchType.EAGER)
 	Set<Veiculo> veiculos = new HashSet<>();
 	
 	public Cliente() {

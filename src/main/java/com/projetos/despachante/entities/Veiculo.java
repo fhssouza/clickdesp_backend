@@ -7,6 +7,7 @@ import java.util.Objects;
 import java.util.Set;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -16,6 +17,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.projetos.despachante.entities.enums.Procedencia;
 import com.projetos.despachante.entities.enums.TipoCombustivel;
 
@@ -44,7 +46,8 @@ public class Veiculo implements Serializable{
 	@JsonFormat(pattern = "dd/MM/yyyy")
 	private Date crvData;
 	
-	@OneToMany(mappedBy = "veiculo")
+	@JsonIgnore
+	@OneToMany(mappedBy = "veiculo", fetch = FetchType.EAGER)
 	private Set<OrdemServico> ordensServicos = new HashSet<>();
 	
 	@ManyToOne

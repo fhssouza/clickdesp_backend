@@ -6,11 +6,14 @@ import java.util.Objects;
 import java.util.Set;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "tb_tiposervico")
@@ -22,7 +25,8 @@ public class TipoServico implements Serializable{
 	private Long id;
 	private String Descricao;
 	
-	@OneToMany(mappedBy = "tipoServico")
+	@JsonIgnore
+	@OneToMany(mappedBy = "tipoServico", fetch = FetchType.EAGER)
 	Set<OrdemServico> ordensServicos = new HashSet<>();
 	
 	public TipoServico() {

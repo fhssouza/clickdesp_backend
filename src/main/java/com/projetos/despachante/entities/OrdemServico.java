@@ -7,6 +7,7 @@ import java.util.Objects;
 import java.util.Set;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -34,18 +35,18 @@ public class OrdemServico implements Serializable{
 	private String observacao;
 	
 	@ManyToOne
-	@JoinColumn(name = "veiculo_id")
-	private Veiculo veiculo;
-	
-	@ManyToOne
 	@JoinColumn(name = "tipoServico_id")
 	private TipoServico tipoServico;
+	
+	@ManyToOne
+	@JoinColumn(name = "veiculo_id")
+	private Veiculo veiculo;
 	
 	@ManyToOne
 	@JoinColumn(name = "cliente_id")
 	private Cliente cliente;
 	
-	@OneToMany(mappedBy = "id.ordemServico")
+	@OneToMany(mappedBy = "id.ordemServico", fetch = FetchType.EAGER)
 	private Set<ItemOrdemServico> itens = new HashSet<>();
 	
 	public OrdemServico() {

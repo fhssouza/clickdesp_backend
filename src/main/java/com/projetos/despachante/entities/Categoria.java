@@ -1,9 +1,9 @@
 package com.projetos.despachante.entities;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -24,7 +24,7 @@ public class Categoria implements Serializable {
 	private String nome;
 
 	@ManyToMany(mappedBy = "categorias", fetch = FetchType.EAGER)
-	private List<Servico> servicos = new ArrayList<>();
+	private Set<Servico> servicos = new HashSet<>();
 
 	public Categoria() {
 	}
@@ -51,11 +51,11 @@ public class Categoria implements Serializable {
 		this.nome = nome;
 	}
 
-	public List<Servico> getServicos() {
+	public Set<Servico> getServicos() {
 		return servicos;
 	}
 
-	public void setServicos(List<Servico> servicos) {
+	public void setServicos(Set<Servico> servicos) {
 		this.servicos = servicos;
 	}
 

@@ -7,11 +7,14 @@ import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "tb_itemordemservico")
 public class ItemOrdemServico implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
+	@JsonIgnore
 	@EmbeddedId
 	private ItemOrdemServicoPK id = new ItemOrdemServicoPK();
 	
@@ -31,6 +34,7 @@ public class ItemOrdemServico implements Serializable{
 		this.valorLiquido = valorLiquido;
 	}
 	
+	@JsonIgnore
 	public OrdemServico getOrdemServico() {
 		return id.getOrdemServico();
 	}
